@@ -273,6 +273,103 @@ async def get_file(file_id: str):
         raise HTTPException(status_code=404, detail="File not found")
     return file_doc
 
+# CMS Routes
+@api_router.get("/cms/blocks", response_model=List[ContentBlock])
+async def get_all_content_blocks():
+    """Get all content blocks"""
+    blocks = await db.content_blocks.find({}, {"_id": 0}).to_list(1000)
+    return blocks
+
+@api_router.get("/cms/blocks/{page}", response_model=List[ContentBlock])
+async def get_page_content_blocks(page: str):
+    """Get content blocks for a specific page"""
+    blocks = await db.content_blocks.find(
+        {"page": page, "is_active": True}, 
+        {"_id": 0}
+    ).sort("order", 1).to_list(1000)
+    return blocks
+
+@api_router.put("/cms/blocks/{block_id}")
+async def update_content_block(block_id: str, update: ContentBlockUpdate):
+    """Update a content block"""
+    update_data = {"content": update.content, "updated_at": datetime.now(timezone.utc).isoformat()}
+    if update.is_active is not None:
+        update_data["is_active"] = update.is_active
+    
+    result = await db.content_blocks.update_one(
+        {"id": block_id},
+        {"$set": update_data}
+    )
+    
+    if result.modified_count == 0:
+        raise HTTPException(status_code=404, detail="Content block not found")
+    
+    # Return updated block
+    block = await db.content_blocks.find_one({"id": block_id}, {"_id": 0})
+    return block
+
+@api_router.post("/cms/blocks")
+async def create_content_block(block: ContentBlock):
+    """Create a new content block"""
+    doc = block.model_dump()
+    await db.content_blocks.insert_one(doc)
+    return block
+
+@api_router.post("/cms/media", response_model=MediaFile)
+async def upload_media(file: UploadFile = File(...)):
+    """Upload media file"""
+    try:
+        contents = await file.read()
+        base64_data = base64.b64encode(contents).decode('utf-8')
+        
+        media_file = MediaFile(
+            filename=file.filename,
+            data=base64_data,
+            content_type=file.content_type,
+            size=len(contents)
+        )
+        
+        doc = media_file.model_dump()
+        await db.media_files.insert_one(doc)
+        
+        return media_file
+    except Exception as e:
+        logger.error(f"Media upload error: {str(e)}")
+        raise HTTPException(status_code=500, detail="Media upload failed")
+
+@api_router.get("/cms/media", response_model=List[MediaFile])
+async def get_all_media():
+    """Get all media files"""
+    # Don't include the actual base64 data in list view for performance
+    media = await db.media_files.find(
+        {}, 
+        {"_id": 0, "data": 0}
+    ).sort("uploaded_at", -1).to_list(1000)
+    return media
+
+@api_router.get("/cms/media/{media_id}", response_model=MediaFile)
+async def get_media_file(media_id: str):
+    """Get a specific media file with full data"""
+    media = await db.media_files.find_one({"id": media_id}, {"_id": 0})
+    if not media:
+        raise HTTPException(status_code=404, detail="Media file not found")
+    return media
+
+@api_router.delete("/cms/media/{media_id}")
+async def delete_media_file(media_id: str):
+    """Delete a media file"""
+    result = await db.media_files.delete_one({"id": media_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Media file not found")
+    return {"success": True, "message": "Media file deleted"}
+
+# Email Logs Routes
+@api_router.get("/admin/email-logs", response_model=List[EmailLog])
+async def get_email_logs():
+    """Get all email logs"""
+    logs = await db.email_logs.find({}, {"_id": 0}).sort("timestamp", -1).to_list(1000)
+    return logs
+
 # Admin Routes
 @api_router.post("/admin/login", response_model=AdminLoginResponse)
 async def admin_login(credentials: AdminLogin):
