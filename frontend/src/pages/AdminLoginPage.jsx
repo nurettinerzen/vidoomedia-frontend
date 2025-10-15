@@ -25,7 +25,7 @@ export default function AdminLoginPage() {
       if (response.data.success) {
         localStorage.setItem('admin_token', response.data.token);
         toast.success('Login successful!');
-        navigate('/admin/dashboard');
+        navigate('/admin-ridemedia-8432/dashboard');
       } else {
         toast.error(response.data.message || 'Invalid credentials');
       }
