@@ -214,6 +214,29 @@ async def submit_advertiser_contact(submission: AdvertiserSubmissionCreate):
     doc = sub_obj.model_dump()
     await db.advertiser_submissions.insert_one(doc)
     
+    # Log email notification
+    email_body = f"""
+New Advertiser Inquiry Received
+
+Company: {submission.company_name}
+Contact: {submission.contact_name}
+Email: {submission.email}
+Budget Range: {submission.budget_range}
+Target Cities: {submission.cities}
+Ad Formats: {submission.ad_formats}
+
+Inquiry ID: {sub_obj.id}
+Submitted: {sub_obj.submitted_at}
+    """
+    
+    await log_email(
+        log_type="advertiser_inquiry",
+        recipient="nurettinerzen@gmail.com",
+        subject=f"New Advertiser Inquiry - {submission.company_name}",
+        body=email_body,
+        form_data=sub_dict
+    )
+    
     logger.info(f"New advertiser inquiry from {submission.company_name} - {submission.email}")
     return sub_obj
 
