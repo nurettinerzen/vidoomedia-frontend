@@ -18,8 +18,8 @@ function App() {
           <Route path="/drivers" element={<DriversPage />} />
           <Route path="/advertisers" element={<AdvertisersPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/admin" element={<AdminLoginPage />} />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin-ridemedia-8432" element={<AdminLoginPage />} />
+          <Route path="/admin-ridemedia-8432/dashboard" element={<AdminDashboard />} />
         </Routes>
       </BrowserRouter>
       <Toaster position="top-right" />
