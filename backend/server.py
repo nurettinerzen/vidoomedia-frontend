@@ -138,6 +138,27 @@ class EmailLog(BaseModel):
     timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     status: str = "logged"  # logged, sent, failed
 
+# ============ Helper Functions ============
+
+async def log_email(log_type: str, recipient: str, subject: str, body: str, form_data: Dict[str, Any]):
+    """Log email instead of sending for now"""
+    email_log = EmailLog(
+        log_type=log_type,
+        recipient=recipient,
+        subject=subject,
+        body=body,
+        form_data=form_data
+    )
+    
+    doc = email_log.model_dump()
+    await db.email_logs.insert_one(doc)
+    
+    logger.info(f"📧 EMAIL LOGGED: {log_type} - {subject}")
+    logger.info(f"   To: {recipient}")
+    logger.info(f"   Body: {body[:100]}...")
+    
+    return email_log
+
 # ============ Routes ============
 
 @api_router.get("/")
