@@ -216,10 +216,24 @@ export default function AdminDashboard() {
         <Tabs defaultValue="drivers" className="space-y-6">
           <TabsList className="bg-white border shadow-sm">
             <TabsTrigger value="drivers" data-testid="drivers-tab">
+              <Users size={16} className="mr-2" />
               Driver Applications
             </TabsTrigger>
             <TabsTrigger value="advertisers" data-testid="advertisers-tab">
+              <Briefcase size={16} className="mr-2" />
               Advertiser Inquiries
+            </TabsTrigger>
+            <TabsTrigger value="cms" data-testid="cms-tab">
+              <FileText size={16} className="mr-2" />
+              CMS Editor
+            </TabsTrigger>
+            <TabsTrigger value="media" data-testid="media-tab">
+              <ImageIcon size={16} className="mr-2" />
+              Media Library
+            </TabsTrigger>
+            <TabsTrigger value="emails" data-testid="emails-tab">
+              <Mail size={16} className="mr-2" />
+              Email Logs
             </TabsTrigger>
           </TabsList>
 
