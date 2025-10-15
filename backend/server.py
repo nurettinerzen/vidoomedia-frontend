@@ -174,6 +174,29 @@ async def submit_driver_application(application: DriverApplicationCreate):
     doc = app_obj.model_dump()
     await db.driver_applications.insert_one(doc)
     
+    # Log email notification
+    email_body = f"""
+New Driver Application Received
+
+Name: {application.name}
+Email: {application.email}
+Phone: {application.phone}
+City: {application.city}
+Platform: {application.platform}
+Vehicle: {application.vehicle_year} {application.vehicle_make} {application.vehicle_model}
+
+Application ID: {app_obj.id}
+Submitted: {app_obj.submitted_at}
+    """
+    
+    await log_email(
+        log_type="driver_application",
+        recipient="nurettinerzen@gmail.com",
+        subject=f"New Driver Application - {application.name}",
+        body=email_body,
+        form_data=app_dict
+    )
+    
     logger.info(f"New driver application from {application.email} in {application.city}")
     return app_obj
 
