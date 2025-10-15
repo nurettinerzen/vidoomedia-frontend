@@ -101,6 +101,43 @@ class AdminLoginResponse(BaseModel):
 class UpdateStatusRequest(BaseModel):
     status: str
 
+class ContentBlock(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    page: str  # "home", "drivers", "advertisers", "about"
+    section_id: str  # "hero", "stats", "testimonials", "cta", etc.
+    content: Dict[str, Any]  # JSON content with title, body, images, etc.
+    order: int = 0
+    is_active: bool = True
+    updated_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
+class ContentBlockUpdate(BaseModel):
+    content: Dict[str, Any]
+    is_active: Optional[bool] = None
+
+class MediaFile(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    filename: str
+    data: str  # base64 encoded
+    content_type: str
+    size: int = 0
+    uploaded_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
+class EmailLog(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    log_type: str  # "driver_application", "advertiser_inquiry"
+    recipient: str
+    subject: str
+    body: str
+    form_data: Dict[str, Any]
+    timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    status: str = "logged"  # logged, sent, failed
+
 # ============ Routes ============
 
 @api_router.get("/")
