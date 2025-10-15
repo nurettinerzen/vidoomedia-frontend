@@ -165,6 +165,163 @@ async def log_email(log_type: str, recipient: str, subject: str, body: str, form
 async def root():
     return {"message": "RideMedia API"}
 
+@api_router.post("/admin/initialize-cms")
+async def initialize_cms():
+    """Initialize default CMS content blocks - run once"""
+    # Check if already initialized
+    existing = await db.content_blocks.count_documents({})
+    if existing > 0:
+        return {"message": "CMS already initialized", "blocks_count": existing}
+    
+    default_blocks = [
+        # Homepage blocks
+        {
+            "id": str(uuid.uuid4()),
+            "page": "home",
+            "section_id": "hero",
+            "order": 1,
+            "is_active": True,
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "content": {
+                "title": "Transform Your",
+                "subtitle": "Rideshare Vehicle",
+                "subtitle2": "Into Revenue",
+                "description": "Join 500+ drivers earning extra income with in-vehicle digital advertising. We connect brands with passengers through engaging, targeted ads.",
+                "cta_primary_text": "Become a Driver Partner",
+                "cta_primary_link": "/drivers",
+                "cta_secondary_text": "Advertise With Us",
+                "cta_secondary_link": "/advertisers",
+                "image_url": "https://images.unsplash.com/photo-1688457462495-1440d81f4ddb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxjYXIlMjB0YWJsZXQlMjB0ZWNobm9sb2d5fGVufDB8fHx8MTc2MDUwNzA5Mnww&ixlib=rb-4.1.0&q=85"
+            }
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "page": "home",
+            "section_id": "stats",
+            "order": 2,
+            "is_active": True,
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "content": {
+                "stats": [
+                    {"label": "Active Vehicles", "value": "500+", "icon": "Users"},
+                    {"label": "Digital Screens", "value": "500+", "icon": "Monitor"},
+                    {"label": "Monthly Impressions", "value": "2M+", "icon": "TrendingUp"},
+                    {"label": "Cities", "value": "12", "icon": "MapPin"}
+                ]
+            }
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "page": "home",
+            "section_id": "value_proposition",
+            "order": 3,
+            "is_active": True,
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "content": {
+                "title": "Why Choose RideMedia?",
+                "subtitle": "We're revolutionizing how brands connect with consumers through innovative in-vehicle advertising",
+                "cards": [
+                    {
+                        "icon": "Users",
+                        "title": "For Drivers",
+                        "description": "Earn $400-600 extra per month with minimal effort. Quick setup, no impact on your rideshare status."
+                    },
+                    {
+                        "icon": "Monitor",
+                        "title": "For Advertisers",
+                        "description": "Reach your target audience with unskippable, high-engagement ads in a captive environment."
+                    },
+                    {
+                        "icon": "TrendingUp",
+                        "title": "Measurable Results",
+                        "description": "Track impressions, engagement, and ROI with our comprehensive analytics dashboard."
+                    }
+                ]
+            }
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "page": "home",
+            "section_id": "testimonials",
+            "order": 4,
+            "is_active": True,
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "content": {
+                "title": "What People Say",
+                "subtitle": "Hear from our drivers and advertising partners",
+                "testimonials": [
+                    {
+                        "name": "Sarah Johnson",
+                        "role": "Uber Driver",
+                        "content": "RideMedia has been a game-changer! I earn an extra $400-500 per month just by having the screen in my car.",
+                        "rating": 5
+                    },
+                    {
+                        "name": "Mike Chen",
+                        "role": "Marketing Director, TechCorp",
+                        "content": "The engagement rates are incredible. Our brand awareness increased by 45% in targeted markets.",
+                        "rating": 5
+                    },
+                    {
+                        "name": "Jessica Martinez",
+                        "role": "Lyft Driver",
+                        "content": "Installation was quick and easy. Passengers often comment on how cool the setup looks!",
+                        "rating": 5
+                    }
+                ]
+            }
+        },
+        # Drivers page blocks
+        {
+            "id": str(uuid.uuid4()),
+            "page": "drivers",
+            "section_id": "hero",
+            "order": 1,
+            "is_active": True,
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "content": {
+                "title": "Earn More With Your Vehicle",
+                "description": "Join 500+ drivers already earning extra income through in-vehicle digital advertising",
+                "background_image": "https://images.unsplash.com/photo-1664209448379-732f0dac59bd"
+            }
+        },
+        # Advertisers page blocks
+        {
+            "id": str(uuid.uuid4()),
+            "page": "advertisers",
+            "section_id": "hero",
+            "order": 1,
+            "is_active": True,
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "content": {
+                "title": "Reach Passengers On the Move",
+                "description": "Connect with 2M+ monthly passengers through high-engagement, in-vehicle digital advertising",
+                "background_image": "https://images.unsplash.com/photo-1700411882249-1bc16dc3b9e9"
+            }
+        },
+        # About page blocks
+        {
+            "id": str(uuid.uuid4()),
+            "page": "about",
+            "section_id": "hero",
+            "order": 1,
+            "is_active": True,
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "content": {
+                "title": "Our Mission",
+                "description": "To create a win-win ecosystem where drivers earn more income, brands reach engaged audiences, and passengers enjoy relevant content during their rides."
+            }
+        }
+    ]
+    
+    await db.content_blocks.insert_many(default_blocks)
+    
+    return {
+        "success": True,
+        "message": "CMS initialized with default content",
+        "blocks_created": len(default_blocks)
+    }
+
 # Driver Application Routes
 @api_router.post("/drivers/apply", response_model=DriverApplication)
 async def submit_driver_application(application: DriverApplicationCreate):
