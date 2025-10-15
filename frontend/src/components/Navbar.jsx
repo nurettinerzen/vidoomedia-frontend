@@ -41,15 +41,6 @@ export const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Link to="/admin">
-              <Button 
-                variant="outline" 
-                size="sm"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50"
-              >
-                Admin
-              </Button>
-            </Link>
           </div>
 
           {/* Mobile menu button */}
