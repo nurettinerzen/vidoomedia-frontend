@@ -20,7 +20,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const token = localStorage.getItem('admin_token');
     if (!token) {
-      navigate('/admin');
+      navigate('/admin-ridemedia-8432');
       return;
     }
     fetchData();
