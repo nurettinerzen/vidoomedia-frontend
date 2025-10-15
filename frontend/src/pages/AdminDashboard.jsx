@@ -374,6 +374,51 @@ export default function AdminDashboard() {
               </CardContent>
             </Card>
           </TabsContent>
+
+          {/* CMS Editor Tab */}
+          <TabsContent value="cms">
+            <Card className="border-0 shadow-lg">
+              <CardHeader>
+                <CardTitle>Content Management System</CardTitle>
+                <p className="text-sm text-gray-600">
+                  Edit website content, headlines, descriptions, and more
+                </p>
+              </CardHeader>
+              <CardContent>
+                <CMSEditor />
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Media Library Tab */}
+          <TabsContent value="media">
+            <Card className="border-0 shadow-lg">
+              <CardHeader>
+                <CardTitle>Media Library</CardTitle>
+                <p className="text-sm text-gray-600">
+                  Upload and manage images for your website
+                </p>
+              </CardHeader>
+              <CardContent>
+                <MediaLibrary />
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Email Logs Tab */}
+          <TabsContent value="emails">
+            <Card className="border-0 shadow-lg">
+              <CardHeader>
+                <CardTitle>Email Notification Logs</CardTitle>
+                <p className="text-sm text-gray-600">
+                  View all form submissions and email notifications
+                </p>
+              </CardHeader>
+              <CardContent>
+                <EmailLogs />
+              </CardContent>
+            </Card>
+          </TabsContent>
         </Tabs>
       </main>
     </div>
