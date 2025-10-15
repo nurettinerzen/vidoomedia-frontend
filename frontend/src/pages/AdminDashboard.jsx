@@ -47,7 +47,7 @@ export default function AdminDashboard() {
   const handleLogout = () => {
     localStorage.removeItem('admin_token');
     toast.success('Logged out successfully');
-    navigate('/admin');
+    navigate('/admin-ridemedia-8432');
   };
 
   const updateDriverStatus = async (id, status) => {
