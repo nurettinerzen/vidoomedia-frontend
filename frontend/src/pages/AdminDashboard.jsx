@@ -5,9 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { LogOut, Users, Briefcase, Download } from 'lucide-react';
+import { LogOut, Users, Briefcase, Download, FileText, Image as ImageIcon, Mail } from 'lucide-react';
 import { toast } from 'sonner';
 import axios from 'axios';
+import { CMSEditor } from '@/components/CMSEditor';
+import { MediaLibrary } from '@/components/MediaLibrary';
+import { EmailLogs } from '@/components/EmailLogs';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
