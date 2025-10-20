@@ -1,65 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { VidooNavbar } from '@/components/VidooNavbar';
 import { VidooFooter } from '@/components/VidooFooter';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, MapPin, Phone } from 'lucide-react';
-import { toast } from 'sonner';
-import axios from 'axios';
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+import { ContactForm } from '@/components/ContactForm';
+import { Card, CardContent } from '@/components/ui/card';
+import { Mail, MapPin } from 'lucide-react';
 
 export default function VidooContactPage() {
-  const [formData, setFormData] = useState({
-    company_name: '',
-    contact_name: '',
-    email: '',
-    budget_range: 'Contact for quote',
-    cities: '',
-    ad_formats: 'General Inquiry',
-  });
-  const [message, setMessage] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Use advertiser submission endpoint
-      const submissionData = {
-        ...formData,
-        cities: message, // Store message in cities field
-      };
-
-      await axios.post(`${BACKEND_URL}/api/advertisers/contact`, submissionData);
-      toast.success('Message sent successfully! We\'ll get back to you soon.');
-      
-      setFormData({
-        company_name: '',
-        contact_name: '',
-        email: '',
-        budget_range: 'Contact for quote',
-        cities: '',
-        ad_formats: 'General Inquiry',
-      });
-      setMessage('');
-      e.target.reset();
-    } catch (error) {
-      console.error('Submission error:', error);
-      toast.error('Failed to send message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-black text-white">
