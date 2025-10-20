@@ -34,7 +34,7 @@ export default function VidooHomePage() {
             Engage riders with smart, location-based video ads. Boost your brand's visibility where it matters most.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-            <a href="#contact">
+            <Link to="/contact">
               <Button 
                 size="lg"
                 className="bg-[#00AEEF] hover:bg-[#0099D6] text-white px-8 py-6 text-lg rounded-none font-semibold"
@@ -42,7 +42,7 @@ export default function VidooHomePage() {
               >
                 Advertise With Us
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
 
