@@ -149,7 +149,7 @@ export default function VidooHomePage() {
   {/* Content */}
   <div className="relative h-full flex items-center justify-center text-center px-4">
     <div className="max-w-3xl text-white">
-      <h2 className="text-5xl font-bold mb-6">Transform Your Vehicle Into A Moving Billboard</h2>
+      <h2 className="text-5xl font-bold mb-6">Transform Your Ads Into A Moving Billboard</h2>
       <p className="text-xl mb-8 opacity-90">Professional vehicle wraps that turn heads and grow your brand on every journey</p>
       <button className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105">
         Start Your Campaign
