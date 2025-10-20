@@ -15,7 +15,7 @@ export default function VidooHomePage() {
       <section 
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1688457462495-1440d81f4ddb?crop=entropy&cs=srgb&fm=jpg&q=85')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://customer-assets.emergentagent.com/job_ridemedia/artifacts/tbd488kd_ChatGPT%20Image%20Oct%2015%2C%202025%20at%2001_18_56%20PM.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -23,35 +23,25 @@ export default function VidooHomePage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <h1 
-            className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in"
+            className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in text-white"
             style={{ lineHeight: '1.1' }}
           >
-            Transforming Rides<br />
-            Into <span className="text-[#00AEEF]">Moving Billboards</span>
+            Revolutionizing<br />
+            <span className="text-[#00AEEF]">Rideshare Advertising</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto animate-fade-in">
-            VidooMedia connects brands with real-world attention using in-car digital advertising screens.
+          <p className="text-xl md:text-2xl text-white mb-12 max-w-3xl mx-auto animate-fade-in">
+            Engage riders with smart, location-based video ads. Boost your brand's visibility where it matters most.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-            <Link to="/advertising">
+            <a href="#contact">
               <Button 
                 size="lg"
                 className="bg-[#00AEEF] hover:bg-[#0099D6] text-white px-8 py-6 text-lg rounded-none font-semibold"
-                data-testid="become-advertiser-cta"
+                data-testid="advertise-cta"
               >
-                Become an Advertiser
+                Advertise With Us
               </Button>
-            </Link>
-            <Link to="/drivers">
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-2 border-[#00AEEF] text-[#00AEEF] hover:bg-[#00AEEF] hover:text-black px-8 py-6 text-lg rounded-none font-semibold"
-                data-testid="drive-earn-cta"
-              >
-                Drive & Earn
-              </Button>
-            </Link>
+            </a>
           </div>
         </div>
 
