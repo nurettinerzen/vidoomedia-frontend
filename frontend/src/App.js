@@ -1,3 +1,14 @@
+import { useEffect } from 'react';
+
+function AboutPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    // sayfa içeriği
+  );
+}
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import '@/App.css';
