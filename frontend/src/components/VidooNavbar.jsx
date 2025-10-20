@@ -39,7 +39,7 @@ export const VidooNavbar = () => {
             <img 
               src="https://customer-assets.emergentagent.com/job_ridemedia/artifacts/2wjoc5rm_VidooMedia%20Logo.png"
               alt="VidooMedia"
-              className="h-16 w-auto"
+              className="h-24 w-auto"
             />
           </Link>
 
