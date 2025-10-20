@@ -217,7 +217,7 @@ export default function HomePage() {
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="relative rounded-2xl overflow-hidden shadow-2xl">
       <img 
-        src="/toyota-wrap.jpg" 
+        src="/TeslaWrap.jpg" 
         alt="Vehicle Wrap Design" 
         className="w-full h-[500px] object-cover"
       />
