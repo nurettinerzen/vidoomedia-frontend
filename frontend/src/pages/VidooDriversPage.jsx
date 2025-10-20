@@ -72,10 +72,10 @@ export default function VidooDriversPage() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
-            Earn While You Drive
+            Earn Passive Income as a Driver
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto animate-fade-in">
-            Join our network and turn your car into a revenue generator
+          <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto animate-fade-in">
+            Turn your everyday commute into a smart income opportunity.
           </p>
         </div>
       </section>
@@ -83,39 +83,51 @@ export default function VidooDriversPage() {
       {/* Benefits Section */}
       <section className="py-20 bg-gradient-to-b from-black to-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <Card className="bg-[#1a1a1a] border-gray-800 hover:border-[#00AEEF] transition-all">
-              <CardContent className="pt-8 pb-8 text-center">
-                <div className="w-20 h-20 mx-auto mb-6 bg-[#00AEEF]/10 rounded-full flex items-center justify-center">
-                  <DollarSign className="text-[#00AEEF]" size={40} />
+              <CardContent className="pt-8 pb-8">
+                <div className="flex items-center mb-4">
+                  <CheckCircle2 className="text-[#00AEEF] mr-2" size={24} />
+                  <h3 className="text-xl font-bold text-white">$200–$300/month</h3>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Make Passive Income</h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Earn $400-600 per month with minimal effort. Just drive your normal routes.
+                <p className="text-gray-400 text-sm">
+                  Earn consistent passive income with no extra effort
                 </p>
               </CardContent>
             </Card>
 
             <Card className="bg-[#1a1a1a] border-gray-800 hover:border-[#00AEEF] transition-all">
-              <CardContent className="pt-8 pb-8 text-center">
-                <div className="w-20 h-20 mx-auto mb-6 bg-[#00AEEF]/10 rounded-full flex items-center justify-center">
-                  <Zap className="text-[#00AEEF]" size={40} />
+              <CardContent className="pt-8 pb-8">
+                <div className="flex items-center mb-4">
+                  <CheckCircle2 className="text-[#00AEEF] mr-2" size={24} />
+                  <h3 className="text-xl font-bold text-white">No Interaction</h3>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">No Rider Interaction</h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Screens run automatically. You just drive as you normally would.
+                <p className="text-gray-400 text-sm">
+                  No rider interaction required - screens run automatically
                 </p>
               </CardContent>
             </Card>
 
             <Card className="bg-[#1a1a1a] border-gray-800 hover:border-[#00AEEF] transition-all">
-              <CardContent className="pt-8 pb-8 text-center">
-                <div className="w-20 h-20 mx-auto mb-6 bg-[#00AEEF]/10 rounded-full flex items-center justify-center">
-                  <TrendingUp className="text-[#00AEEF]" size={40} />
+              <CardContent className="pt-8 pb-8">
+                <div className="flex items-center mb-4">
+                  <CheckCircle2 className="text-[#00AEEF] mr-2" size={24} />
+                  <h3 className="text-xl font-bold text-white">Weekly Payments</h3>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Weekly Payments</h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Get paid every week via direct deposit. Fast and reliable.
+                <p className="text-gray-400 text-sm">
+                  Direct deposit payments every week
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-[#1a1a1a] border-gray-800 hover:border-[#00AEEF] transition-all">
+              <CardContent className="pt-8 pb-8">
+                <div className="flex items-center mb-4">
+                  <CheckCircle2 className="text-[#00AEEF] mr-2" size={24} />
+                  <h3 className="text-xl font-bold text-white">Easy Setup</h3>
+                </div>
+                <p className="text-gray-400 text-sm">
+                  Hassle-free, automatic screen installation
                 </p>
               </CardContent>
             </Card>
