@@ -16,7 +16,7 @@ export default function VidooHomePage() {
       <section 
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://customer-assets.emergentagent.com/job_ridemedia/artifacts/tbd488kd_ChatGPT%20Image%20Oct%2015%2C%202025%20at%2001_18_56%20PM.png')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://customer-assets.emergentagent.com/job_ridemedia/artifacts/yrnre02d_Lucid_Origin_A_realistic_interior_of_a_modern_Uber_or_Lyft_veh_1.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
