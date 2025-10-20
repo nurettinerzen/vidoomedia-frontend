@@ -1,5 +1,4 @@
 import React from 'react';
-import teslaWrap from '../assets/images/TeslaWrap.jpg';
 import { Link } from 'react-router-dom';
 import { VidooNavbar } from '@/components/VidooNavbar';
 import { VidooFooter } from '@/components/VidooFooter';
@@ -141,26 +140,6 @@ export default function VidooHomePage() {
           </div>
         </div>
       </section>
-
-      {/* Toyota Wrap Banner */}
-<section className="py-20 bg-gray-50">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-      <img 
-        src={TeslaWrap}
-        alt="Vehicle Wrap Design" 
-        className="w-full h-[500px] object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center">
-        <div className="max-w-xl ml-12 text-white">
-          <h2 className="text-4xl font-bold mb-4">Transform Your Vehicle</h2>
-          <p className="text-xl mb-6">Professional vehicle wraps that turn heads and grow your brand</p>
-          <Button className="bg-blue-600 hover:bg-blue-700">Get Started</Button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-b from-[#0a0a0a] to-black">
