@@ -37,9 +37,9 @@ export const VidooNavbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src="https://customer-assets.emergentagent.com/job_ridemedia/artifacts/lfpcmy9s_VidooMedia%20Logo.png"
+              src="https://customer-assets.emergentagent.com/job_ridemedia/artifacts/gpq4r6tf_VidooMedia%20Logo.png"
               alt="VidooMedia"
-              className="h-10 w-auto"
+              className="h-12 w-auto"
             />
           </Link>
 
