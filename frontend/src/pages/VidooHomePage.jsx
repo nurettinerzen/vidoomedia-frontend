@@ -142,23 +142,34 @@ export default function VidooHomePage() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-b from-[#0a0a0a] to-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Get in Touch
-            </h2>
-            <p className="text-xl text-gray-400">
-              Ready to amplify your brand? Contact us today.
-            </p>
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-b from-[#0a0a0a] to-black">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Get Started?
+          </h2>
+          <p className="text-xl text-gray-400 mb-8">
+            Join the future of outdoor advertising today
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact">
+              <Button 
+                size="lg"
+                className="bg-[#00AEEF] hover:bg-[#0099D6] text-white px-8 py-6 text-lg rounded-none font-semibold"
+              >
+                Contact Us
+              </Button>
+            </Link>
+            <Link to="/advertising">
+              <Button 
+                size="lg"
+                variant="outline"
+                className="border-2 border-[#00AEEF] text-[#00AEEF] hover:bg-[#00AEEF] hover:text-black px-8 py-6 text-lg rounded-none font-semibold"
+              >
+                Learn More
+              </Button>
+            </Link>
           </div>
-
-          <Card className="bg-[#1a1a1a] border-gray-800">
-            <CardContent className="pt-8">
-              <ContactForm />
-            </CardContent>
-          </Card>
         </div>
       </section>
 
