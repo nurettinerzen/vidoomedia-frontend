@@ -147,7 +147,7 @@ export default function VidooHomePage() {
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="relative rounded-2xl overflow-hidden shadow-2xl">
       <img 
-        src="/TeslaWrap.jpg" 
+        src={TeslaWrap}
         alt="Vehicle Wrap Design" 
         className="w-full h-[500px] object-cover"
       />
@@ -155,9 +155,7 @@ export default function VidooHomePage() {
         <div className="max-w-xl ml-12 text-white">
           <h2 className="text-4xl font-bold mb-4">Transform Your Vehicle</h2>
           <p className="text-xl mb-6">Professional vehicle wraps that turn heads and grow your brand</p>
-          <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-colors">
-            Get Started
-          </button>
+          <Button className="bg-blue-600 hover:bg-blue-700">Get Started</Button>
         </div>
       </div>
     </div>
