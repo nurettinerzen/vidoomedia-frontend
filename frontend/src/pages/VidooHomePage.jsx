@@ -141,6 +141,14 @@ export default function VidooHomePage() {
         </div>
       </section>
 
+      <div style={{padding: '40px', backgroundColor: '#f9fafb'}}>
+  <img 
+    src="/tesla-wrap.jpg" 
+    alt="Vehicle Wrap" 
+    style={{width: '100%', maxWidth: '1200px', margin: '0 auto', display: 'block', borderRadius: '16px'}}
+  />
+</div>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-b from-[#0a0a0a] to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
