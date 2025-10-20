@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { VidooNavbar } from '@/components/VidooNavbar';
 import { VidooFooter } from '@/components/VidooFooter';
+import { ContactForm } from '@/components/ContactForm';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, BarChart3, Target, DollarSign, Zap, TrendingUp } from 'lucide-react';
