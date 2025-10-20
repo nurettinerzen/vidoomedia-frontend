@@ -29,77 +29,8 @@ export default function VidooContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Form */}
             <Card className="bg-[#1a1a1a] border-gray-800">
-              <CardHeader className="border-b border-gray-800">
-                <CardTitle className="text-2xl text-white">Send Us a Message</CardTitle>
-              </CardHeader>
               <CardContent className="pt-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <Label htmlFor="contact_name" className="text-white">Name *</Label>
-                    <Input
-                      id="contact_name"
-                      name="contact_name"
-                      required
-                      value={formData.contact_name}
-                      onChange={handleInputChange}
-                      placeholder="Your name"
-                      className="mt-2 bg-black border-gray-700 text-white"
-                      data-testid="name-input"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="email" className="text-white">Email *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="your@email.com"
-                      className="mt-2 bg-black border-gray-700 text-white"
-                      data-testid="email-input"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="company_name" className="text-white">Company (Optional)</Label>
-                    <Input
-                      id="company_name"
-                      name="company_name"
-                      value={formData.company_name}
-                      onChange={handleInputChange}
-                      placeholder="Your company"
-                      className="mt-2 bg-black border-gray-700 text-white"
-                      data-testid="company-input"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="message" className="text-white">Message *</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      required
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      placeholder="Tell us how we can help..."
-                      className="mt-2 bg-black border-gray-700 text-white"
-                      rows={5}
-                      data-testid="message-input"
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-[#00AEEF] hover:bg-[#0099D6] text-white py-6 text-lg rounded-none font-semibold"
-                    disabled={isSubmitting}
-                    data-testid="submit-message-button"
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </Button>
-                </form>
+                <ContactForm />
               </CardContent>
             </Card>
 
