@@ -141,12 +141,21 @@ export default function VidooHomePage() {
         </div>
       </section>
 
-      <div style={{padding: '40px', backgroundColor: '#f9fafb'}}>
-  <img 
-    src="/tesla-wrap.jpg" 
-    alt="Vehicle Wrap" 
-    style={{width: '100%', maxWidth: '1200px', margin: '0 auto', display: 'block', borderRadius: '16px'}}
-  />
+      {/* Parallax Banner */}
+<div className="relative h-[600px] overflow-hidden" style={{backgroundImage: 'url(/tesla-wrap.jpg)', backgroundAttachment: 'fixed', backgroundPosition: 'center', backgroundSize: 'cover'}}>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/50"></div>
+  
+  {/* Content */}
+  <div className="relative h-full flex items-center justify-center text-center px-4">
+    <div className="max-w-3xl text-white">
+      <h2 className="text-5xl font-bold mb-6">Transform Your Vehicle Into A Moving Billboard</h2>
+      <p className="text-xl mb-8 opacity-90">Professional vehicle wraps that turn heads and grow your brand on every journey</p>
+      <button className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105">
+        Start Your Campaign
+      </button>
+    </div>
+  </div>
 </div>
 
       {/* CTA Section */}
