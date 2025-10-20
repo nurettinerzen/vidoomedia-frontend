@@ -10,8 +10,18 @@ body {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #ffffff;
-  color: #1f2937;
+  background: #000000;
+  color: #ffffff;
+}
+
+/* VidooMedia Brand Colors */
+:root {
+  --vidoo-blue: #00AEEF;
+  --vidoo-dark: #000000;
+  --vidoo-gray: #1a1a1a;
+  --vidoo-light-gray: #2a2a2a;
+  --vidoo-text: #ffffff;
+  --vidoo-text-muted: #a0a0a0;
 }
 
 .App {
