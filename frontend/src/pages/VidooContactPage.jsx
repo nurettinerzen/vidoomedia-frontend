@@ -41,8 +41,7 @@ export default function VidooContactPage() {
                   Let's Connect
                 </h2>
                 <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                  Whether you're interested in advertising with us or becoming a driver partner, 
-                  we're here to answer your questions and help you get started.
+                  We're here to answer your questions and help you get started.
                 </p>
               </div>
 
