@@ -23,7 +23,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const token = localStorage.getItem('admin_token');
     if (!token) {
-      navigate('/admin-ridemedia-8432');
+      navigate('/adminpage');
       return;
     }
     fetchData();
@@ -50,7 +50,7 @@ export default function AdminDashboard() {
   const handleLogout = () => {
     localStorage.removeItem('admin_token');
     toast.success('Logged out successfully');
-    navigate('/admin-ridemedia-8432');
+    navigate('/adminpage');
   };
 
   const updateDriverStatus = async (id, status) => {
