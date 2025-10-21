@@ -127,10 +127,10 @@ export default function AdminDashboard() {
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">RM</span>
+                <span className="text-white font-bold text-xl">VM</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">RideMedia Admin</h1>
+                <h1 className="text-2xl font-bold text-gray-900">VidooMedia Admin</h1>
                 <p className="text-sm text-gray-600">Dashboard</p>
               </div>
             </div>
