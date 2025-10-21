@@ -33,8 +33,8 @@ function App() {
           <Route path="/advertisers" element={<VidooAdvertisingPage />} />
           <Route path="/about" element={<VidooAboutPage />} />
           <Route path="/contact" element={<VidooContactPage />} />
-          <Route path="/admin-ridemedia-8432" element={<AdminLoginPage />} />
-          <Route path="/admin-ridemedia-8432/dashboard" element={<AdminDashboard />} />
+          <Route path="/adminpage" element={<AdminLoginPage />} />
+          <Route path="/adminpage/dashboard" element={<AdminDashboard />} />
         </Routes>
       </BrowserRouter>
       <Toaster position="top-right" />
