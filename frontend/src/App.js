@@ -8,6 +8,8 @@ import VidooAboutPage from '@/pages/VidooAboutPage';
 import VidooContactPage from '@/pages/VidooContactPage';
 import AdminLoginPage from '@/pages/AdminLoginPage';
 import AdminDashboard from '@/pages/AdminDashboard';
+import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
+import TermsOfServicePage from '@/pages/TermsOfServicePage';
 import { Toaster } from '@/components/ui/sonner';
 
 // Scroll to top on route change
@@ -35,6 +37,8 @@ function App() {
           <Route path="/contact" element={<VidooContactPage />} />
           <Route path="/adminpage" element={<AdminLoginPage />} />
           <Route path="/adminpage/dashboard" element={<AdminDashboard />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
         </Routes>
       </BrowserRouter>
       <Toaster position="top-right" />
